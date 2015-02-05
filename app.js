@@ -1,8 +1,10 @@
 // Dependencies: node-hid, mac-vhid
 var hid = require ('node-hid');
-//var devices = hid.devices ();
+var mouse = require ('mac-vhid');
 var EE = require ('events').EventEmitter;
 var app = new EE ();
+
+//var devices = hid.devices ();
 
 var cur = [ 128, 128, 0, 128, 128, 15, 0, 0 ];
 
@@ -138,12 +140,11 @@ function loadHID (path) {
 }
 
 var ok = loadHID ('USB_0079_0006_14100000');
-var hid = require ('mac-vhid');
 
 ok.on ('analogLeftX', function (val) {
-  hid.mouseMoveDelta (val, 0);
+  mouse.mouseMoveDelta (val, 0);
 });
 
 ok.on ('analogLeftY', function (val) {
-  hid.mouseMoveDelta (0, val);
+  mouse.mouseMoveDelta (0, val);
 });
