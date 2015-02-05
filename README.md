@@ -1,2 +1,2 @@
 # nodejs-gamepad
-PS3 gamepad experiment with node.js
+OSX PS3 gamepad experiment with node.js
